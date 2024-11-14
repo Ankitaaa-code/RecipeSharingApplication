@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipe-deployment
+  labels:
+    app: recipe
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recipe
+  template:
+    metadata:
+      labels:
+        app: recipe
+    spec:
+      containers:
+        - name: nginx
+          image: Recipe-Sharing:0.0.1-SNAPSHOT
+          ports:
+            - containerPort: 80
